@@ -1,0 +1,98 @@
+{% extends '../layouts/default.html' %}
+
+{% block main %}
+  <h1>{{ title }}</h1>
+  <hr>
+{% endblock %}
+
+{% block content %}
+  {% if apikey.isNew %}
+    {% set action = '/apikeys' %}
+  {% else %}
+    {% set action = '/apikeys/' + apikey._id %}
+  {% endif %}
+
+  <div class="row">
+    <div class="col-md-8">
+      <form method="post" action="{{ action }}" enctype="multipart/form-data" role="form" class="form-horizontal">
+
+        <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+
+        {% if not apikey.isNew %}
+          <input type="hidden" name="_method" value="PUT">
+        {% endif %}
+
+        <div class="form-group">
+          <label for="title" class="col-sm-2 control-label">Title</label>
+          <div class="col-sm-10">
+            <input type="text" name="title" value="{{ apikey.title }}" placeholder="Enter a name for this Apikey" class="form-control" id="title">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <textarea rows="5" name="description" placeholder="Enter the Apikey application or usage" id="desc" cols="30" rows="10" class="form-control">{{ apikey.description }}</textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="account" class="col-sm-2 control-label">Account</label>
+          <div class="col-sm-10">
+            <input type="text" name="account" value="{{ apikey.account }}" placeholder="Enter the Account" class="form-control" id="account">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="project_id" class="col-sm-2 control-label">Project ID</label>
+          <div class="col-sm-10">
+            <input type="text" name="project_id" value="{{ apikey.project_id }}" placeholder="Enter the Project ID" class="form-control" id="project_id">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="activity_id" class="col-sm-2 control-label">Activity_ID</label>
+          <div class="col-sm-10">
+            <input type="text" name="activity_id" value="{{ apikey.activity_id }}" placeholder="Enter the Activity ID" class="form-control" id="activity_id">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="environment" class="col-sm-2 control-label">Environment</label>
+          <div class="col-sm-10">
+            <select name="environment" placeholder="Enter the Environment" class="form-control" id="environment">
+ <option value="{{ apikey.environment }}">{{ apikey.environment }}</option>
+ <option value="development">development</option>
+ <option value="test">test</option>
+ <option value="qa">qa</option>
+ <option value="production">production<option>
+</select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="enabled" class="col-sm-2 control-label">enabled</label>
+          <div class="col-sm-10">
+            <select name="enabled" placeholder="Apikey Enabled" class="form-control" id="enabled">
+ <option value="{{ apikey.enabled }}">{{ apikey.enabled }}</option>
+ <option value="true">true</option>
+ <option value="false">false</option>
+</select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" type="submit">Save</button>
+            &nbsp;
+            <a href="/apikeys" class="btn btn-link">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+{% endblock %}

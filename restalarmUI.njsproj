@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{16c062e1-d998-4813-888c-ff3f6f53b25a}</ProjectGuid>
+        <ProjectHome />
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile>server.js</StartupFile>
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="LICENSE.txt" />
+        <Content Include="nodemon.json" />
+        <Content Include="package.json" />
+        <Content Include="CONTRIBUTING.md" />
+        <Content Include="README.md" />
+        <Compile Include="server.js" />
+        <Compile Include="config\config.js" />
+        <Compile Include="config\express.js" />
+        <Compile Include="config\imager.js" />
+        <Compile Include="config\passport.js" />
+        <Compile Include="config\routes.js" />
+        <Compile Include="lib\utils.js" />
+        <Compile Include="test\helper.js" />
+        <Compile Include="test\test-articles.js" />
+        <Compile Include="test\test-users.js" />
+        <Compile Include="app\controllers\apikeys.js" />
+        <Compile Include="app\controllers\articles.js" />
+        <Compile Include="app\controllers\comments.js" />
+        <Compile Include="app\controllers\tags.js" />
+        <Compile Include="app\controllers\users.js" />
+        <Compile Include="app\mailer\index.js" />
+        <Compile Include="app\models\apikey.js" />
+        <Compile Include="app\models\article.js" />
+        <Compile Include="app\models\user.js" />
+        <Content Include="app\views\404.html" />
+        <Content Include="app\views\500.html" />
+        <Content Include="app\mailer\templates\comment.html" />
+        <Content Include="app\views\apikeys\account.html" />
+        <Content Include="app\views\apikeys\accounts.html" />
+        <Content Include="app\views\apikeys\apikey.html" />
+        <Content Include="app\views\apikeys\edit.html" />
+        <Content Include="app\views\apikeys\form.html" />
+        <Content Include="app\views\apikeys\index.mobile.html" />
+        <Content Include="app\views\apikeys\index.html" />
+        <Content Include="app\views\apikeys\myindex.html" />
+        <Content Include="app\views\apikeys\new.html" />
+        <Content Include="app\views\apikeys\show.mobile.html" />
+        <Content Include="app\views\apikeys\show.html" />
+        <Content Include="app\views\articles\article.html" />
+        <Content Include="app\views\articles\edit.html" />
+        <Content Include="app\views\articles\form.html" />
+        <Content Include="app\views\articles\index.mobile.html" />
+        <Content Include="app\views\articles\index.html" />
+        <Content Include="app\views\articles\new.html" />
+        <Content Include="app\views\articles\show.mobile.html" />
+        <Content Include="app\views\articles\show.html" />
+        <Content Include="app\views\comments\comment.html" />
+        <Content Include="app\views\comments\form.html" />
+        <Content Include="app\views\includes\footer.html" />
+        <Content Include="app\views\includes\foot.html" />
+        <Content Include="app\views\includes\header.html" />
+        <Content Include="app\views\includes\header.html~" />
+        <Content Include="app\views\includes\head.html" />
+        <Content Include="app\views\includes\messages.html" />
+        <Content Include="app\views\layouts\default.html" />
+        <Content Include="app\views\layouts\mobile.html" />
+        <Content Include="app\views\users\auth.html" />
+        <Content Include="app\views\users\login.html" />
+        <Content Include="app\views\users\show.html" />
+        <Content Include="app\views\users\signup.html" />
+        <Content Include="config\env\env.example.json" />
+        <Content Include="config\env\env.json" />
+        <Compile Include="config\env\development.js" />
+        <Compile Include="config\env\production.js" />
+        <Compile Include="config\env\test.js" />
+        <Compile Include="config\middlewares\authorization.js" />
+        <Compile Include="config\passport\facebook.js" />
+        <Compile Include="config\passport\github.js" />
+        <Compile Include="config\passport\google.js" />
+        <Compile Include="config\passport\linkedin.js" />
+        <Compile Include="config\passport\local.js" />
+        <Compile Include="config\passport\twitter.js" />
+        <Content Include="NodejsConsoleApp1\NodejsConsoleApp1\package.json" />
+        <Content Include="NodejsConsoleApp1\NodejsConsoleApp1\README.md" />
+        <Compile Include="NodejsConsoleApp1\NodejsConsoleApp1\app.js" />
+        <Content Include="public\css\app.css" />
+        <Content Include="public\css\bootstrap-responsive.min.css" />
+        <Content Include="public\css\bootstrap.min.css" />
+        <Content Include="public\css\jquery.tagsinput.css" />
+        <Content Include="public\img\facebook.png" />
+        <Content Include="public\img\github.png" />
+        <Content Include="public\img\glyphicons-halflings-white.png" />
+        <Content Include="public\img\glyphicons-halflings.png" />
+        <Content Include="public\img\google.png" />
+        <Content Include="public\img\linkedin.png" />
+        <Content Include="public\img\twitter.png" />
+        <Compile Include="public\js\app.js" />
+        <Compile Include="public\js\bootstrap.min.js" />
+        <Compile Include="public\js\jquery.min.js" />
+        <Compile Include="public\js\jquery.tagsinput.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="app" />
+        <Folder Include="app\controllers" />
+        <Folder Include="app\mailer" />
+        <Folder Include="app\mailer\templates" />
+        <Folder Include="app\models" />
+        <Folder Include="app\views" />
+        <Folder Include="app\views\apikeys" />
+        <Folder Include="app\views\articles" />
+        <Folder Include="app\views\comments" />
+        <Folder Include="app\views\includes" />
+        <Folder Include="app\views\layouts" />
+        <Folder Include="app\views\users" />
+        <Folder Include="config" />
+        <Folder Include="config\env" />
+        <Folder Include="config\middlewares" />
+        <Folder Include="config\passport" />
+        <Folder Include="lib" />
+        <Folder Include="NodejsConsoleApp1" />
+        <Folder Include="NodejsConsoleApp1\NodejsConsoleApp1" />
+        <Folder Include="public" />
+        <Folder Include="public\css" />
+        <Folder Include="public\img" />
+        <Folder Include="public\js" />
+        <Folder Include="test" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>

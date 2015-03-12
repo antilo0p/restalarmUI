@@ -1,0 +1,14 @@
+{% extends '../layouts/default.html' %}
+
+{% block main %}
+  <h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+  <br>
+  <br>
+
+  <div class="login">
+    {% block auth %}{% endblock %}
+  </div>
+{% endblock %}

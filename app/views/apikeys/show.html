@@ -1,0 +1,64 @@
+{% extends '../layouts/default.html' %}
+
+{% block main %}
+  <h1>{{ apikey.title }} - {{ apikey.environment }} </h1>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <p><strong>Enabled: {{ apikey.enabled }}</strong></p>
+      <p>{{ apikey.description }}</p>
+      <div class="meta">
+          Apikey: &nbsp;
+ {% if (req.isAuthenticated()) %}
+	 {% if (apikey.creator.id != req.user.id) %}
+            <input type="text" size="45" name="apikey"  disabled value="{{ apikey.apiKey| first }}..." />
+	{% else %}
+            <input type="text" size="45" name="apikey" disabled value="{{ apikey.apiKey }}" />
+	{% endif %}
+{% else %}
+            <input type="text" size="45" name="apikey"  disabled value="{{ apikey.apiKey| first }}..." />
+{% endif %}
+	<br />
+        <span class="muted">Last Updated: {{ apikey.updatedAt.toISOString()|date('M d, Y  h:m a') }}</span>
+<br />
+        <span class="muted">Copy & Paste to your RESTalarm client settings</span>
+      </div>
+<br />
+      <div class="meta">
+          Account: &nbsp;
+           <a href="/apikeys/account/{{ apikey.account }}"> {{ apikey.account }}</a>
+<br />
+        <span class="muted"> Project ID: <strong>{{ apikey.project_id }}</strong>  Actiivity ID: <strong>{{ apikey.activity_id }}</strong></span>
+      </div>
+<br />
+      <div class="meta">
+        {% if (apikey.creator) %}
+          Owner: &nbsp;
+          <a href="{{ '/users/' + apikey.creator._id }}">
+            {{ apikey.creator.name || apikey.creator.username }}
+          </a>
+        {% endif %}
+<br />
+        <span class="muted">Created at {{ apikey.createdAt.toISOString()|date('M d, Y  h:m a') }}</span>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+ {% if (req.isAuthenticated()) %}
+  <form action="{{ '/apikeys/' + apikey.id }}" method="post" onsubmit="return confirm('Are you sure?')">
+    <br>
+    <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+    <a href="{{ '/apikeys/' + apikey._id + '/edit' }}" title="edit" class="btn btn-default">
+      Edit
+    </a>
+    &nbsp;
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn btn-danger" type="submit">Delete</button>
+  </form>
+{% endif %}
+  <br>
+{% endblock %}

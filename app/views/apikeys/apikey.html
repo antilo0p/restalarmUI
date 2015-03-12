@@ -1,0 +1,19 @@
+<div class="apikey">
+  <h3>
+    <a href="{{ '/apikeys/' + apikey._id }}" title="{{ apikey.title }}">
+      {{ apikey.title }} - {{ apikey.environment }}
+    </a>
+  </h3>
+  <p>{{ apikey.description }}</p>
+
+  <span class="muted">{{ apikey.createdAt.toISOString()|date('M d, Y  h:m a') }}</span>
+
+  {% if (apikey.creator) %}
+    &nbsp; - &nbsp;
+    <span>Owner:</span>
+    <a href="{{ '/users/' + apikey.creator._id }}">
+      {{ apikey.creator.name || apikey.creator.username }}
+    </a>
+  {% endif %}
+
+</div>

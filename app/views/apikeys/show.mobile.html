@@ -1,0 +1,40 @@
+{% extends '../layouts/mobile.html' %}
+
+{% block main %}
+  <h1>{{ apikey.title }} - {{ apikey.environment }}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <p>{{ apikey.description }}</p>
+      <div class="meta">
+        {% if (apikey.creator) %}
+          {% if (apikey.creator.name) %}
+            {% set name = apikey.creator.name %}
+          {% else %}
+            {% set name = apikey.creator.username %}
+          {% endif %}
+
+          <a href="{{ '/apikeys/' + apikey.creator._id }}">{{ name }}</a>
+        {% endif %}
+
+        <span class="muted">{{ apikey.createdAt.toISOString()|date('M d, Y  h:m a') }}</span>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+
+  <form action="{{ '/apikeys/' + apikey.id }}" method="post" onsubmit="return confirm('Are you sure?')">
+    <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+    <a href="{{ '/apikeys/' + apikey._id + '/edit' }}" title="edit" class="btn btn-default">
+      Edit
+    </a>
+    &nbsp;
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn btn-danger" type="submit">Delete</button>
+  </form>
+
+  <br>
+{% endblock %}
